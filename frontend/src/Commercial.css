@@ -1,0 +1,31 @@
+.user_icon{
+    height: 15px;
+    width: 15px;
+    position: absolute;
+    margin-left: 42.35%;
+    margin-top: 0.2%;
+}
+#light .web_commercial{
+    width: 100%;
+    background-color: #f6e174;
+    cursor: pointer;
+    box-shadow: 1px 1px rgba(0, 0, 0, 0.1);
+}
+#dark .web_commercial{
+    width: 100%;
+    background-color: darkgoldenrod;
+    cursor: pointer;
+    box-shadow: 1px 1px rgba(0, 0, 0, 0.1);
+}
+#light .web_text{
+    font-size: 13px;
+    margin-left: 43.5%;
+    font-family: "Poppins" , sans-serif;
+    color: #1F1F1E;
+}
+#dark .web_text{
+    font-size: 13px;
+    margin-left: 43.5%;
+    color: ghostwhite;
+    font-family: "Poppins" , sans-serif;
+}

@@ -1,0 +1,72 @@
+.container {
+    text-align: center;
+    display: flex;
+    position: absolute;
+    margin-left: 95.5%;
+}
+.toggle_switch {
+    position: relative;
+    width: 45px;
+    height: 20px;
+    display: flex;
+    margin-left: 5px;
+    margin-top: 5px;
+}
+.checkbox {
+    display: none;
+}
+.label {
+    display: block;
+    cursor: pointer;
+    border: 0 solid #bbb;
+    border-radius: 20px;
+    overflow: hidden;
+}
+.inner {
+    display: block;
+    width: 200%;
+    margin-left: -100%;
+    transition: margin 0.3s ease-in 0s;
+}
+.inner:before,
+.inner:after {
+    float: left;
+    width: 50%;
+    height: 20px;
+    padding: 0;
+    line-height: 16px;
+    color: #fff;
+    font-weight: bold;
+    box-sizing: border-box;
+}
+.inner:before {
+    content: "🌙";
+    background-color:white;
+    color: #fff;
+    text-align: left;
+}
+.inner:after {
+    content: "🔆";
+    padding: 1px;
+    background-color: #2B283A;
+    color: #fff;
+    text-align: right;
+}
+.switch {
+    display: block;
+    width: 20px;
+    height: 20px;
+    background: white;
+    position: absolute;
+    right: 25px;
+    border: 3px solid #FFD700;
+    border-radius: 20px;
+    transition: all 0.3s ease-in 0s;
+}
+.checkbox:checked + .label .inner {
+    margin-left: 0;
+}
+.checkbox:checked + .label .switch {
+    right: 1px;
+}
+

@@ -9,10 +9,10 @@
     position: absolute;
     flex: 1 1 auto;
     color: #1F1F1E;
-    margin-top: 12.5%;
+    margin-top: 12%;
 }
 #dark .main{
-    margin-top: 12.5%;
+    margin-top: 12%;
     margin-left: 17.5%;
     flex: 1 1 auto;
     position: absolute;
@@ -45,4 +45,12 @@
     border: 1px solid darkgoldenrod;
     padding: 1.5%;
     box-shadow: 0 1px 4px rgba(0, 0, 0, 1);
+}
+.copyright{
+    background: #373735;
+    position: absolute;
+    margin-top: 43.7%;
+    margin-left: 41.5%;
+    color: ghostwhite;
+    font-size: 12px;
 }

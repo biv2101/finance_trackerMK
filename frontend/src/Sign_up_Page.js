@@ -37,7 +37,7 @@ export default function Sign_up_Page(){
                 </div>
                 <div className="info_text register">
                     <h2>Create account!</h2>
-                    <p>Sign up and enjoy all the benefits Finance-Tracker has to offer.</p>
+                    <p>Enter your personal details and start a journey with us.</p>
                 </div>
             </div>
         </div>

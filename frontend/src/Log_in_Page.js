@@ -33,7 +33,7 @@ export default function Log_in_Page(){
                 </div>
                 <div className="info_text login">
                     <h2>Welcome back!</h2>
-                    <p>Stay connected and login with your personal email & password.</p>
+                    <p>To keep connected login with your personal email & password.</p>
                 </div>
             </div>
         </div>

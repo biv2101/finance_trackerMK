@@ -7,7 +7,6 @@ import {ReactComponent as Facebook} from "./Facebook.svg";
 import {ReactComponent as Instagram} from "./Instagram.svg";
 import {ReactComponent as TikTok} from "./TikTok.svg";
 import {ReactComponent as X} from "./X.svg";
-import {ReactComponent as Github} from "./Github.svg";
 import {Link, useLocation} from "react-router-dom";
 export default function Contact_Page(){
     const Home_style={
@@ -49,8 +48,7 @@ export default function Contact_Page(){
                             <li><a href="https://www.facebook.com/profile.php?id=100095598936177"><Facebook className="media_image"/></a></li>
                             <li><a href="https://www.instagram.com/finance_tracker.mk/"><Instagram className="media_image"/></a></li>
                             <li><a href="#"><TikTok className="media_image"/></a></li>
-                            <li><a href="#"><X className="media_image"/></a></li>
-                            <li><a href="#"><Github className="media_image"/></a></li>
+                            <li><a href="https://twitter.com/FinaceTrackerMK"><X className="media_image"/></a></li>
                         </ul>
                     </div>
                     <div className="contact_form">
@@ -79,7 +77,7 @@ export default function Contact_Page(){
                             <div className="input_box w100">
                                 <input type="submit" value="Send"/>
                             </div>
-                            <Link style={Home_style} to="/" id="home_button">Back</Link>
+                            <Link style={Home_style} to="/" id="home_button">Home</Link>
                         </div>
                     </div>
                 </div>

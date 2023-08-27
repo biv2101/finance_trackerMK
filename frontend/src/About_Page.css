@@ -63,7 +63,7 @@
 .section_title{
     white-space: pre-line;
     margin-left: 43.5%;
-    color: #aca496;
+    color: darkgoldenrod;
 }
 .team_item:hover h3{
     color: goldenrod;
@@ -115,16 +115,13 @@ ul.team_icon li a{
     line-height: 18px;
     border-radius: 50%;
 }
-ul.team_icon li .about_twitter{
-    background-color: whitesmoke;
-}
-ul.team_icon li a.about_facebook{
-    background-color: whitesmoke;
-}
 ul.team_icon li a.about_instagram{
     background-color: whitesmoke;
 }
 ul.team_icon li a.about_github{
+    background-color: whitesmoke;
+}
+ul.team_icon li a.about_linkedin{
     background-color: whitesmoke;
 }
 .team_icon li a:hover{

@@ -33,7 +33,7 @@
     background-repeat: no-repeat;
     border-radius: 10px;
     border: 1px solid #373735;
-    z-index: 1;
+    z-index: 2;
     margin-top: 12%;
 }
 #dark .drop_down_content{
@@ -50,7 +50,7 @@
     background-repeat: no-repeat;
     border-radius: 10px;
     border: 1px solid ghostwhite;
-    z-index: 1;
+    z-index: 2;
     margin-top: 12%;
 }
 #light .drop_down:hover .drop_down_content {

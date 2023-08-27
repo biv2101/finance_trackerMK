@@ -1,23 +1,42 @@
 #light .card{
-    height: 31%;
+    height: 25%;
     width: 20.5%;
-    border: 1px solid gold;
+    border: 2px solid gold;
     padding: 1%;
     position: absolute;
     margin-left: 78.5%;
     margin-top: 2.5%;
     background-color: ghostwhite;
     box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+    background-image: url("finki_photo.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    z-index: 1;
 }
-#dark .card{
-    height: 31%;
+#dark .card_container{
+    height: 25%;
     width: 20.5%;
-    border: 1px solid darkgoldenrod;
+    border: 2px solid gold;
     padding: 1%;
     position: absolute;
     margin-left: 78.5%;
     margin-top: 2.5%;
-    background-color: #1F1F1E;
-    color: ghostwhite;
-    box-shadow: 0 1px 4px rgba(0, 0, 0, 1);
+    background-color: ghostwhite;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+    background-image: url("finki_photo.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    z-index: 1;
+}
+.card_link{
+    text-align: center;
+    width: 45%;
+    border-radius: 5px;
+    border: 1px solid #2563eb;
+    padding: 0.5rem 1rem;
+    background-color: #2563eb;
+    text-decoration: none;
+    margin-left: 32.5%;
+    margin-top: 42.5%;
+    cursor: pointer;
 }

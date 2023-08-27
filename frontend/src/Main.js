@@ -2,6 +2,7 @@ import React from "react"
 import "./Main.css"
 export default function Main(props){
     return(
+        <div>
         <main className="main">
             <div className="child_element">
                 "We have also added the borders in the scroll panel areas.
@@ -43,5 +44,7 @@ export default function Main(props){
                 We have also added the borders in the scroll panel areas.
             </div>
         </main>
+            <span className="copyright">© Copyright 2023/2024. All rights reserved!</span>
+        </div>
     )
 }

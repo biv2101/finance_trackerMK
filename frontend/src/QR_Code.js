@@ -1,8 +1,7 @@
 import React from "react";
 import {ReactComponent as Code_1} from "./qr-code.svg";
 import "./QR_Code.css"
-export default function QR_Code(props){
-    const{qr_value}=props
+export default function QR_Code(){
     return(
             <div className="drop_down">
                 <Code_1 className="code"/>

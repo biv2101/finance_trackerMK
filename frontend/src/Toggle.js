@@ -1,16 +1,25 @@
 import React from "react";
 import "./Toggle.css";
-const ToggleSwitch = ({ label }) => {
+const ToggleSwitch = (props) => {
     return (
         <div className="container">
-            {label}{" "}
+            {props.label}{" "}
             <div className="toggle_switch">
-                <input type="checkbox" className="checkbox"
-                       name={label} id={label} />
-                <label className="label" htmlFor={label}>
+                <input onChange={() => {
+                            let darkTheme = localStorage.getItem('darkTheme')
+                            if(darkTheme == 'true'){
+                                localStorage.setItem('darkTheme', 'false')
+                            }
+                            else localStorage.setItem('darkTheme', 'true')
+                            }}  
+                        type="checkbox" className="checkbox"
+                       name={props.label} id={props.label} />
+                <label className="label" htmlFor={props.label}>
                     <span className="inner" />
                     <span className="switch" />
                 </label>
+
+
             </div>
         </div>
     );

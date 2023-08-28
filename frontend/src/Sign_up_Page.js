@@ -21,7 +21,7 @@ export default function Sign_up_Page(){
 
     const signUpUser = () =>
     {
-        axios.post('http://192.168.100.5:3000/sign_up', {
+        axios.post('http://localhost:3000/sign_up', {
             user: user,
             email: email,
             password: password
@@ -64,7 +64,7 @@ export default function Sign_up_Page(){
                             <label className="log_in_label">Password</label>
                             <Lock className="log_in_lock"/>
                         </div>
-                        <button type="submit" className="log_in_btn" onClick={signUpUser()}>Sign Up</button>
+                        <button type="submit" className="log_in_btn" onClick={() => signUpUser()}>Sign Up</button>
                         <div className="log_reg_link">
                             <p>Already have an account? <Link to="/log_in" className="login_link">Log in</Link></p>
                             <p>Want to go back? <Link to="/" className="register_link">Home</Link></p>

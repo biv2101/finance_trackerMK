@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, {useEffect} from "react";
 import {useState} from "react";
 import './App.css';
 import Navbar from "./Navbar";
@@ -9,14 +9,14 @@ import Bot from "./Bot"
 import Card from "./Card"
 import Commercial from "./Commercial"
 export default function App() {
-
-
-    useEffect(() => {
+    useEffect(()=>{
         localStorage.setItem('darkTheme', false)
     }, [])
-    
+    const style_app={
+        backgroundColor: localStorage.getItem("darkTheme") ? "#373735" : "lightgrey",
+    }
         return (
-        <div className="App">
+        <div className="App" style={style_app}>
             <Navbar/>
             <Main/>
             <Card/>

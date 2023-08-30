@@ -10,7 +10,10 @@
     justify-content: center;
     min-height: 100vh;
     background: #373735;
-    padding: 40px;
+    background-image: url("faq_background.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: 20px;
 }
 .faq_accordion{
     display: flex;
@@ -20,12 +23,12 @@
     justify-content: space-between;
     background: #59594F;
     border-radius: 25px;
-    padding: 45px 90px 45px 60px;
-    border: 1px solid darkgoldenrod;
+    padding: 45px 40px 45px 50px;
+    border: 3px solid darkgoldenrod;
 }
 .faq_accordion .image_box{
-    height: 500px;
-    width: 600px;
+    height: 600px;
+    width: 700px;
 }
 .faq_accordion .image_box img{
     height: 90%;
@@ -65,7 +68,6 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    cursor: pointer;
     color: darkgoldenrod;
 }
 .content{
@@ -78,11 +80,20 @@
     max-height: 100px;
     transition: all 0.2s cubic-bezier(1,0,1,0);
 }
-.faq_chevron{
-    filter: invert(1);
-}
-.faq_chevron_up{
-    filter: invert(1);
+.faq_plus{
+    width: 50px;
+    height: 45px;
+    cursor: pointer;
+    position: absolute;
+    margin-top: 32.5%;
+    margin-left: 52%;
+    border-bottom: none;
+    max-width: 150px;
+    padding: 12px;
+    font-size: 18px;
+    background: darkgoldenrod;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.8);
+    border-radius: 2px;
 }
 @media (max-width: 994px) {
     .faq_body{
@@ -136,10 +147,16 @@
     padding: 12px;
     width: 100%;
     font-size: 18px;
-    margin-top: 30.5%;
-    margin-left: 36%;
+    margin-top: 32.5%;
+    margin-left: 40%;
     box-shadow: 0 1px 4px rgba(0, 0, 0, 1);
 }
 .faq_accordion #home_button:hover{
     background: #373735;
+}
+.faq_Title h2{
+    font-size: 20px;
+}
+.faq_answer{
+    font-size: 15px;
 }

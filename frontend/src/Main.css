@@ -3,54 +3,36 @@
     margin: 3% 17%;
     width: 60%;
 }
-#light .main{
-    background-color: ghostwhite;
+.main{
     margin-left: 17.5%;
     position: absolute;
     flex: 1 1 auto;
-    color: #1F1F1E;
     margin-top: 12%;
 }
-#dark .main{
-    margin-top: 12%;
-    margin-left: 17.5%;
-    flex: 1 1 auto;
-    position: absolute;
-    color: white;
-    background-color: #1F1F1E;
-}
- ::-webkit-scrollbar{
+::-webkit-scrollbar{
     width: 15px;
 }
- ::-webkit-scrollbar-track{
+::-webkit-scrollbar-track{
     background: #d1e5ff;
 }
 ::-webkit-scrollbar-thumb{
     background: linear-gradient(lightgrey,dimgrey);
     border-radius: 10px;
-    border: 1px solid goldenrod;
+    border: 2px solid goldenrod;
 }
-#light .child_element{
+.child_element{
     height: 470px;
     width: 100%;
     overflow: auto;
     border: 1px solid gold;
     padding: 1.5%;
-    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
-}
-#dark .child_element{
-    height: 470px;
-    width: 100%;
-    overflow: auto;
-    border: 1px solid darkgoldenrod;
-    padding: 1.5%;
-    box-shadow: 0 1px 4px rgba(0, 0, 0, 1);
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
 }
 .copyright{
-    background: #373735;
+    background: transparent;
     position: absolute;
     margin-top: 43.7%;
     margin-left: 41.5%;
-    color: ghostwhite;
     font-size: 12px;
+    font-weight: 550;
 }

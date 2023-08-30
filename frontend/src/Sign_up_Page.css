@@ -13,7 +13,6 @@
     right: 0;
     transform: translateY(-50%);
     font-size: 18px;
-    filter: invert(1);
 }
 .log_reg_link p .login_link{
     color: darkgoldenrod;

@@ -9,13 +9,11 @@
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background: linear-gradient(to bottom, #1F1F1E, #59594F, #373735);
 }
 .log_in_wrapper{
     position: relative;
     width: 750px;
     height: 450px;
-    background: transparent;
     border: 2px solid darkgoldenrod;
     box-shadow: 0 0 25px darkgoldenrod;
     overflow: hidden;
@@ -35,7 +33,6 @@
 }
 .form_box h2{
     font-size: 32px;
-    color: ghostwhite;
     text-align: center;
 }
 .form_box .input_box_1{
@@ -50,10 +47,8 @@
     background: transparent;
     border: none;
     outline: none;
-    border-bottom: 2px solid ghostwhite;
     padding-right: 28px;
     font-size: 16px;
-    color: ghostwhite;
     font-weight: 500;
     transition: .5s;
 }
@@ -67,7 +62,6 @@
     left: 0;
     transform: translateY(-50%);
     font-size: 16px;
-    color: ghostwhite;
     pointer-events: none;
     transition: .5s;
 }
@@ -82,7 +76,6 @@
     right: 0;
     transform: translateY(-50%);
     font-size: 18px;
-    filter: invert(1);
 }
 .input_box_1 .log_in_lock{
     position: absolute;
@@ -90,7 +83,6 @@
     right: 0;
     transform: translateY(-50%);
     font-size: 18px;
-    filter: invert(1);
 }
 .log_in_btn{
     position: relative;
@@ -123,7 +115,6 @@
 }
 .form_box .log_reg_link{
     font-size: 14px;
-    color: ghostwhite;
     text-align: center;
     margin: 20px 0 10px;
 }
@@ -173,12 +164,12 @@
 .log_in_wrapper .bg_animate_2{
     position: absolute;
     top: 100%;
-    left: 250px;
-    width: 850px;
-    height: 700px;
+    left: 196px;
+    width: 855px;
+    height: 879px;
     background: #373735;
-    border-top: 3px solid darkgoldenrod;
-    transform: rotate(0) skewY(0);
+    border-right: 2px solid darkgoldenrod;
+    transform: rotate(-35deg) skewY(-29deg);
     transform-origin: bottom left;
 }
 

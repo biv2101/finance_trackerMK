@@ -9,7 +9,6 @@
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background: #1F1F1E;
 }
 .contact_section:before{
     content: "";
@@ -18,8 +17,11 @@
     left: 0;
     width: 50%;
     height: 100%;
-    background: #373735;
-    border-right: 1px solid darkgoldenrod;
+    background: #59594F;
+    background-image: url("contact_background.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    border-right: 3px solid darkgoldenrod;
 }
 .contact_container{
     position: relative;
@@ -33,7 +35,6 @@
     top: 40px;
     width: 390px;
     height: calc(100% - 80px);
-    background: #1F1F1E;
     z-index: 1;
     padding: 40px;
     display: flex;
@@ -65,7 +66,6 @@
 }
 .contact_container .contact_info ul.info .contact_li .contact_image{
     max-width: 100%;
-    filter: invert(1);
     width: 30px;
     height: 30px;
 }
@@ -87,7 +87,6 @@
     text-decoration: none;
 }
 .contact_container .contact_info ul.sci li a .media_image{
-    filter: invert(1);
     width: 30px;
     height: 30px;
 }
@@ -98,9 +97,8 @@
     margin-left: 150px;
     width: calc(100% - 150px);
     height: 100%;
-    background: #59594F;
     box-shadow: 0 50px 50px rgba(0,0,0,0.25);
-    border: 1px solid darkgoldenrod;
+    border: 3px solid darkgoldenrod;
 }
 .contact_container .contact_form h2{
     color: black;
@@ -132,7 +130,6 @@
     font-size: 18px;
     font-weight: 300;
     color: ghostwhite;
-    background-color: #59594F;
     border: none;
     outline: none;
     border-bottom: 2px solid #777;
@@ -163,7 +160,6 @@
 .contact_container .contact_form .form_box .input_box input[type="submit"]{
     position: relative;
     cursor: pointer;
-    background: #1F1F1E;
     color: darkgoldenrod;
     border-bottom: none;
     max-width: 150px;
@@ -248,7 +244,6 @@
 .contact_body .contact_section .contact_container .contact_form #home_button{
     position: absolute;
     cursor: pointer;
-    background: #1F1F1E;
     color: darkgoldenrod;
     border-bottom: none;
     max-width: 150px;
@@ -260,5 +255,5 @@
     box-shadow: 0 1px 4px rgba(0, 0, 0, 1);
 }
 .contact_body .contact_section .contact_container .contact_form #home_button:hover{
-    background: #373735;
+    background: #aca496;
 }

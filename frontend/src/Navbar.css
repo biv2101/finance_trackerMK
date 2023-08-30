@@ -8,79 +8,38 @@
 .navbar{
     display: flex;
     align-items: center;
+    width: 100%;
+    position: relative;
+    padding-left: 5px;
 }
 .navbar li{
     list-style: none;
-    padding: 0 15px;
+    padding: 0 20px;
     position: relative;
 }
 .navbar_logo{
     width: 120px;
     height: 74px;
 }
-#light .navbar{
-    background-color: ghostwhite;
-    width: 100%;
-    position: relative;
-    padding-left: 5px;
-}
-#dark .navbar {
-    background-color: #1F1F1E;
-    width: 100%;
-    position: relative;
-    padding-left: 5px;
-}
-#light .navbar li{
-    list-style: none;
-    padding: 0 20px;
-    position: relative;
-}
-#dark .navbar li{
-    list-style: none;
-    padding: 0 20px;
-    position: relative;
-}
-#light .navbar li a{
+.navbar li a{
     text-decoration: none;
     font-size: 1.3rem;
     font-weight: 600;
-    color: #1F1F1E;
     transition: 0.2s ease-in-out;
 }
-#dark .navbar li a{
-    text-decoration: none;
-    font-size: 1.3rem;
-    font-weight: 600;
-    color: #aca496;
-    transition: 0.2s ease-in-out;
+.navbar li a:hover{
+    color: goldenrod;
 }
-#light .navbar li a:hover{
-    color: gold;
-}
-#dark .navbar li a:hover{
-    color: darkgoldenrod;
-}
-#light .navbar li a:hover::after{
+.navbar li a:hover::after{
     content: "";
     width: 30%;
     height: 2px;
-    background-color: gold;
+    background-color: goldenrod;
     position: absolute;
     bottom: -4px;
     left: 20px;
 }
-#dark .navbar li a:hover::after{
-    content: "";
-    width: 30%;
-    height: 2px;
-    background-color: darkgoldenrod;
-    position: absolute;
-    bottom: -4px;
-    left: 20px;
-}
-#light .log_in{
-    background-color: rgba(245,229,27,1);
-    border: 1px solid gold;
+.log_in{
     border-radius: 10px;
     color: #FFFFFF;
     display: inline-block;
@@ -100,53 +59,7 @@
     margin-left: 46.8%;
     cursor: pointer;
 }
-#dark .log_in{
-    background-color: goldenrod;
-    border: 1px solid darkgoldenrod;
-    border-radius: 10px;
-    color: #FFFFFF;
-    display: inline-block;
-    font-family: -apple-system,system-ui,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
-    font-size: 15px;
-    font-weight: 500;
-    line-height: 2.5;
-    outline: transparent;
-    padding: 0 1rem;
-    text-align: center;
-    text-decoration: none;
-    transition: box-shadow .2s ease-in-out;
-    user-select: none;
-    -webkit-user-select: none;
-    touch-action: manipulation;
-    white-space: nowrap;
-    margin-left: 46.8%;
-    cursor: pointer;
-}
-#light .sign_up{
-    background-color: rgba(245,229,27,1);
-    border: 1px solid gold;
-    border-radius: 10px;
-    color: #FFFFFF;
-    cursor: pointer;
-    display: inline-block;
-    font-family: -apple-system,system-ui,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
-    font-size: 15px;
-    font-weight: 500;
-    line-height: 2.5;
-    outline: transparent;
-    padding: 0 1rem;
-    text-align: center;
-    text-decoration: none;
-    transition: box-shadow .2s ease-in-out;
-    user-select: none;
-    -webkit-user-select: none;
-    touch-action: manipulation;
-    white-space: nowrap;
-    margin-left: 1%;
-}
-#dark .sign_up{
-    background-color: goldenrod;
-    border: 1px solid darkgoldenrod;
+.sign_up{
     border-radius: 10px;
     color: #FFFFFF;
     cursor: pointer;

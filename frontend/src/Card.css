@@ -1,19 +1,4 @@
-#light .card{
-    height: 25%;
-    width: 20.5%;
-    border: 2px solid gold;
-    padding: 1%;
-    position: absolute;
-    margin-left: 78.5%;
-    margin-top: 2.5%;
-    background-color: ghostwhite;
-    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
-    background-image: url("finki_photo.png");
-    background-repeat: no-repeat;
-    background-size: contain;
-    z-index: 1;
-}
-#dark .card_container{
+.card_container{
     height: 25%;
     width: 20.5%;
     border: 2px solid gold;

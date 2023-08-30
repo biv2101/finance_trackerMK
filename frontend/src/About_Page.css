@@ -1,25 +1,30 @@
 .About{
-    padding: 20px;
+    padding: 15px;
     background-color: #59594F;
     min-height: 100vh;
 }
 .about_section{
     background-color: #1F1F1E;
-    padding: 20px 10%;
-    border: 1px solid darkgoldenrod;
+    border: 3px solid darkgoldenrod;
     box-shadow: 0 1px 4px rgba(0, 0, 0, 1);
+    background-image: url("about_background.png");
+    background-repeat: no-repeat;
+    background-position: 50% 20%;
+    background-size: 105% 105%;
+    height: 715px;
 }
 .team_item{
     background-color: #59594F;
     text-align: center;
-    padding: 60px 20px 60px 20px;
     border-radius: 8px 8px;
+    padding: 1px 1px 30px 1px;
     -webkit-transition: all 0.25s ease-in-out;
     -moz-transition: all 0.25s ease-in-out;
     -o-transition: all 0.25s ease-in-out;
     transition: all 0.25s ease-in-out;
-    border: 2px solid darkgoldenrod;
+    border: 3px solid darkgoldenrod;
     box-shadow: 0 1px 4px rgba(0, 0, 0, 1);
+    height: 90%;
 }
 .team_item:hover{
     background: #aca496;
@@ -34,11 +39,12 @@
 }
 .about_row{
     display: flex;
-    justify-content: space-between;
+    margin-left: 16%;
 }
 .col-sm-6.col-md-4{
-    width: 35%;
-    margin-top: 2.5%;
+    width: 40%;
+    margin-top: 8%;
+    margin-right: 18%;
 }
 .team_item h3{
     margin: 20px 0 1px 0 !important;
@@ -63,14 +69,16 @@
 .section_title{
     white-space: pre-line;
     margin-left: 43.5%;
+    margin-top: 5%;
     color: darkgoldenrod;
+    position: absolute;
 }
 .team_item:hover h3{
     color: goldenrod;
 }
 .team_info{
     display: block;
-    margin-bottom: 0;
+    margin-bottom: 13.5%;
     margin-top: 10%;
 }
 .team_info p{
@@ -95,7 +103,8 @@
     margin-top: 10px;
 }
 ul.team_icon{
-    margin-top: 20%;
+    margin-top: 39%;
+    margin-bottom: 4%;
 }
 ul.team_icon li{
     display: inline-block;
@@ -145,9 +154,9 @@ ul.team_icon li a.about_linkedin{
     border-bottom: none;
     font-size: 18px;
     padding: 10px;
-    padding-left: 40px;
-    margin-left: 35%;
-    margin-top: 35%;
+    padding-left: 38px;
+    margin-left: 29.5%;
+    margin-top: 39%;
     position: absolute;
     width: 8%;
     box-shadow: 0 1px 4px rgba(0, 0, 0, 0.8);

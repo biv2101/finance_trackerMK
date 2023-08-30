@@ -10,8 +10,6 @@ export default function About_Page(){
         justifyContent: "center",
         alignItems: "center",
     }
-    let message_1 = 'Finance-Tracker.mk was founded in 2023. We care about quality, craftsmanship, and disciplined environment.\n';
-    let message_2 = 'We are active contributors to crypto & stocks exchange.';
     return(
         <div className="About">
         <section className="about_section">
@@ -21,8 +19,6 @@ export default function About_Page(){
                         Meet the Team
                     </h2>
                     <br/>
-                    <p className="section_subtitle_1">{message_1}</p>
-                    <p className="section_subtitle_2">{message_2}</p>
                 </div>
                 <div className="about_row">
                     <div className="col-sm-6 col-md-4">

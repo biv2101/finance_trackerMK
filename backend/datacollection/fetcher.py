@@ -30,7 +30,7 @@ def fetch_new_data():
         string_h = current_date.strftime("%H-")
         string_mi = current_date.strftime("%M")
         new = HistoricalData(sym + '-USD', 1, string_y + string_mo + string_d + string_h + string_mi).retrieve_data()
-        new = new.drop(columns=['open','low', 'high', 'volume'])
+        new = new.drop(columns=['open', 'low', 'high', 'volume'])
         new.to_sql(sym, connection, if_exists='append', index=True)
 
 

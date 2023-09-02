@@ -1,5 +1,4 @@
 import React, {useEffect} from "react";
-import {useState} from "react";
 import './App.css';
 import Navbar from "./Navbar";
 import Main from "./Main";
@@ -9,6 +8,7 @@ import Bot from "./Bot"
 import Card from "./Card"
 import Commercial from "./Commercial"
 export default function App() {
+
     useEffect(()=>{
         localStorage.setItem('darkTheme', false)
     }, [])

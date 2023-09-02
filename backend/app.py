@@ -1,8 +1,9 @@
-from flask import Flask, request, jsonify, session
+from flask import Flask, request, jsonify, session, render_template
 from flask_sqlalchemy import SQLAlchemy
 from flask_cors import CORS
 from flask_bcrypt import Bcrypt
 from models import db, User
+import requests
 
 app = Flask(__name__)
 
@@ -15,15 +16,23 @@ SQLALCHEMY_ECHO = True
 bcrypt = Bcrypt(app)
 CORS(app, supports_credentials=False)
 db.init_app(app)
+headers = {"Content-Type": "application/json"}
 
 with app.app_context():
     db.create_all()
 
-@app.route("/sign_up", methods=['POST'])
+@app.route("/sign_up", methods=['POST', 'GET'])
 def signup():
-    user = request.json["user"]
-    email = request.json["email"]
-    password = request.json["password"]
+    # data = requests.get("http://192.168.100.5:3000/sign_up", headers=headers).json()
+    # if request.is_json == True:
+    data = request.get_json()
+    # else:
+    #     print("data is not json")
+    #     return
+
+    user = data['user']
+    email = data['email']
+    password = data['password']
 
     user_exists = User.query.filter_by(user=user).first is not None
 
@@ -36,16 +45,15 @@ def signup():
     db.session.commit()
 
     session["user_id"] = new_user.id
-
-    return jsonify(
-        {
+    responsedata = {
             "id": new_user.id,
             "user": new_user.user,
             "email": new_user.email
         }
-    )
 
-@app.route("/login", methods=['POST'])
+    return jsonify(result=responsedata)
+
+@app.route("/login", methods=['POST','GET'])
 def login():
     username = request.json["user"]
     password = request.json["password"]
@@ -60,10 +68,12 @@ def login():
 
     session["user_id"] = user.id
 
-    return jsonify({
+    responsedata = jsonify({
         "id": user.id,
         "user": user.user
     })
+    response = requests.post("/login", headers=headers, data=responsedata)
+
 
 if  __name__ == '__main__':
     app.run()

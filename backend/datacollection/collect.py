@@ -56,7 +56,7 @@ def getStockInfo(ticker):
   curs1.execute(query)
   connection.commit()
 
-  dailydata.to_sql(tick, connection, if_exists='replace', index = True)
+  dailydata.to_sql(tick, connection, if_exists='replace', index=True)
 
 stockdata = {}
 

@@ -41,18 +41,18 @@ for url_n in url_nyt:
 
 frame = pd.DataFrame(news_list)
 
-url_cnn = {"https://edition.cnn.com/business/investing"}
-
-response = requests.get(url_cnn)
-# print(response.status_code)
-soup = BeautifulSoup(response.content, "html.parser")
-
-headlines = soup.find_all("a", class_="container__link container_lead-plus-headlines-with-images__link")
-# print(headlines)
-
-for link in headlines:
-  news_list.append({'title': link.get_text().strip(),'link': link['href']})
-
-frame = pd.DataFrame(news_list)
+# url_cnn = {"https://edition.cnn.com/business/investing"}
+#
+# response = requests.get(url_cnn)
+# # print(response.status_code)
+# soup = BeautifulSoup(response.content, "html.parser")
+#
+# headlines = soup.find_all("a", class_="container__link container_lead-plus-headlines-with-images__link")
+# # print(headlines)
+#
+# for link in headlines:
+#   news_list.append({'title': link.get_text().strip(),'link': link['href']})
+#
+# frame = pd.DataFrame(news_list)
 
 frame.to_sql('newstable', connection, if_exists='append', index=False)

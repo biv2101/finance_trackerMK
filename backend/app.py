@@ -210,23 +210,18 @@ def symbols():
     sconnection = connect('datacollection/symbolb.db')
     conncurs = sconnection.cursor()
 
-    conncurs.execute("SELECT sym from symbase")
-    symres = [symres[0] for symres in conncurs.fetchall()]
+    conncurs.execute("SELECT sym,name from symbase")
+    symres = conncurs.fetchall()
+    df = pd.DataFrame(symres, columns=['sym', 'name'])
 
-    df = pd.DataFrame(symres)
-
-    conncurs.execute("SELECT sym from tickbase")
-    tickres = [tickres[0] for tickres in conncurs.fetchall()]
-
-
-    df2 = pd.DataFrame(tickres)
+    conncurs.execute("SELECT sym,name from tickbase")
+    tickres = conncurs.fetchall()
+    df2 = pd.DataFrame(tickres, columns=['sym', 'name'])
 
     final = pd.concat([df, df2])
 
-    listicka = symres+tickres
-
     jsonce = final.to_json(orient='records')
-    response = jsonify(listicka)
+    response = jsonify(jsonce)
     response.status_code = 200
     return response
 

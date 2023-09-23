@@ -9,6 +9,7 @@ import Card from "./Card"
 import Commercial from "./Commercial"
 export default function App() {
 
+
     useEffect(()=>{
         localStorage.setItem('darkTheme', false)
     }, [])

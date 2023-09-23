@@ -1,9 +1,39 @@
-import React from "react"
+import React, {useState} from "react"
 import "./Log_in_Page.css"
-import {Link} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 import {ReactComponent as User} from "./User.svg";
 import {ReactComponent as Lock} from "./Lock.svg";
+import axios from "axios";
 export default function Log_in_Page(){
+
+    const [user, setUser] = useState('');
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+
+    const navigate = useNavigate();
+    function signUpUser() {
+        axios.post('/login', {
+                user: user,
+                password: password
+            }, {
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+
+            },
+        )
+            .then(function (response) {
+                console.log(response);
+                navigate("/log_in/" + response.data['user'])
+            })
+            .catch(function (error) {
+                console.log(error, 'error');
+                if (error.response.status === 410) {
+                    alert("Invalid credentials");
+                }
+            });
+    }
+
     const style_login_body={
         background:localStorage.getItem("darkTheme") ? "linear-gradient(to bottom, #1F1F1E, #59594F, #373735)" : "linear-gradient(to bottom, grey, ghostwhite, lightgrey)",
     }
@@ -35,16 +65,17 @@ export default function Log_in_Page(){
                     <h2 style={style_log_in}>Login</h2>
                     <form action="#">
                         <div className="input_box_1">
-                            <input type="text" required style={style_input}/>
+                            <input type="text" required style={style_input} id="user" onChange={(e) => setUser(e.target.value)}/>
                             <label className="log_in_label" style={style_log_in_label}>Username</label>
                             <User className="log_in_user" style={style_icons}/>
                         </div>
                         <div className="input_box_1">
-                            <input type="password" required style={style_input}/>
+                            <input type="password" required style={style_input} id="password"
+                                   onChange={(e) => setPassword(e.target.value)}/>
                             <label className="log_in_label" style={style_log_in_label}>Password</label>
                             <Lock className="log_in_lock" style={style_icons}/>
                         </div>
-                        <button type="submit" className="log_in_btn">Login</button>
+                        <button type="submit" className="log_in_btn" onClick={signUpUser}>Login</button>
                         <div className="log_reg_link" style={style_log_reg_link}>
                             <p>Don't have an account? <Link to="/sign_up" className="register_link" style={style_login_buttons}>Sign up</Link></p>
                             <p>Want to go back? <Link to="/" className="register_link" style={style_login_buttons}>Home</Link></p>

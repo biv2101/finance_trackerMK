@@ -20,6 +20,7 @@ export default function FAQ_Page(){
     const randomNumber_2 = Math.floor(Math.random() * questions.length);
     const randomNumber_3 = Math.floor(Math.random() * questions.length);
     const randomNumber_4 = Math.floor(Math.random() * questions.length);
+
     return(
         <div className="faq_body">
             <div className="faq_accordion">

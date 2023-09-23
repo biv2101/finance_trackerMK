@@ -16,10 +16,11 @@ export default function Sign_up_Page() {
     const [password, setPassword] = useState('');
 
     const navigate = useNavigate();
+
     /* eslint-env jquery */
 
-    const signUpUser = () => {
-        axios.post('http://192.168.100.5:3000/sign_up', {
+    function signUpUser() {
+        axios.post('/sign_up', {
                 user: user,
                 email: email,
                 password: password
@@ -27,37 +28,19 @@ export default function Sign_up_Page() {
                 headers: {
                     'Content-Type': 'application/json'
                 }
-            }
+
+            },
         )
             .then(function (response) {
                 console.log(response);
-                navigate("/sign_up")
+                navigate("/about/")
             })
             .catch(function (error) {
                 console.log(error, 'error');
-                if (error.response.status === 401) {
+                if (error.response.status === 410) {
                     alert("Invalid credentials");
                 }
             });
-    };
-
-    function sendData() {
-        var user1 = document.getElementById('user').value;
-        var email1 = document.getElementById('email').value;
-        var password1 = document.getElementById('password').value;
-        $.ajax({
-            url: '/sign_up',
-            type: 'POST',
-            contentType: 'application/json',
-            data: JSON.stringify({'user': user1, "email": email1, "password": password1}),
-            success: function (response) {
-                console.log("asda");
-                // document.getElementById('output').innerHTML = response.result;
-            },
-            error: function (error) {
-                console.log(error);
-            }
-        });
     }
 
     const style_login_body = {
@@ -91,25 +74,25 @@ export default function Sign_up_Page() {
                     <h2 style={style_sign_up}>Sign Up</h2>
                     <form action="#">
                         <div className="input_box_1">
-                            <input type="text" required value={user} id={user} onChange={(e) => setUser(e.target.value)}
+                            <input type="text" required value={user} id="user" onChange={(e) => setUser(e.target.value)}
                                    style={style_input}/>
                             <label className="log_in_label" style={style_log_in_label}>Username</label>
                             <User className="log_in_user" style={style_icons}/>
                         </div>
                         <div className="input_box_1">
-                            <input type="text" required value={email} id={email}
+                            <input type="text" required value={email} id="email"
                                    onChange={(e) => setEmail(e.target.value)}
                                    style={style_input}/>
                             <label className="log_in_label" style={style_log_in_label}>Email</label>
                             <Email className="log_in_email" style={style_icons}/>
                         </div>
                         <div className="input_box_1">
-                            <input type="password" required value={password} id={password}
+                            <input type="password" required value={password} id="password"
                                    onChange={(e) => setPassword(e.target.value)} style={style_input}/>
                             <label className="log_in_label" style={style_log_in_label}>Password</label>
                             <Lock className="log_in_lock" style={style_icons}/>
                         </div>
-                        <button type="submit" className="log_in_btn" onClick={sendData}>Sign Up</button>
+                        <button type="submit" className="log_in_btn" onClick={signUpUser}>Sign Up</button>
                         <div className="log_reg_link">
                             <p style={style_paragraph}>Already have an account? <Link to="/log_in"
                                                                                       className="login_link"

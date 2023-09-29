@@ -1,0 +1,49 @@
+.code{
+    width: 50px;
+    height: 40px;
+    cursor: pointer;
+}
+.drop_down{
+    position: absolute;
+    margin-left: 84.5%;
+    margin-top: 0.2%;
+}
+.drop_down_content{
+    display: none;
+    position: absolute;
+    min-width: 175px;
+    min-height: 230px;
+    box-shadow: 1px 1px rgba(0,0,0,0.1);
+    background-position-x: center;
+    background-position-y: 10%;
+    background-repeat: no-repeat;
+    border-radius: 10px;
+    border: 1px solid #373735;
+    z-index: 2;
+    margin-top: 12%;
+}
+.drop_down:hover .drop_down_content {
+    display: flex;
+    margin-right: 30%;
+}
+.drop_down_text_1 {
+    position: absolute;
+    margin: 98% 10%;
+    font-size: 13px;
+    font-family: BinancePlex, Arial, sans-serif;
+}
+.drop_down_text_2{
+    position: absolute;
+    margin: 108% 25%;
+    font-size: 13px;
+    font-family: BinancePlex, Arial, sans-serif;
+}
+.drop_down_border{
+    width: 95%;
+    height: 16px;
+    background-color: goldenrod;
+    margin-top: 120%;
+    margin-left: 2.5%;
+    margin-right: 2.5%;
+    border-radius: 10px;
+}

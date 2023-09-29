@@ -1,0 +1,23 @@
+.main_2{
+    position: absolute;
+    margin: 3% 17%;
+    width: 60%;
+    height: 82%;
+}
+.child_element_2{
+    height: 100%;
+    width: 100%;
+    overflow: auto;
+    padding: 1.5%;
+}
+body{
+    background-color: #373735;
+}
+.copyright_1{
+    background: transparent;
+    position: absolute;
+    margin-left: 40%;
+    margin-top: 44.1%;
+    font-size: 10px;
+    font-weight: 550;
+}

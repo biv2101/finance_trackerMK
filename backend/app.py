@@ -1,28 +1,37 @@
 import calendar
+import random
 import sqlite3
 import time
-import uuid
 from sqlite3 import connect
 
-import bcrypt
 import pandas as pd
 import schedule
-from apscheduler.schedulers.background import BackgroundScheduler
 from flask import Flask, request, jsonify, url_for
-from flask_cors import CORS
+from flask_sqlalchemy import SQLAlchemy
+from flask_login import UserMixin
+from datacollection.news import retrieveNews
+from flask_bcrypt import Bcrypt
 
 app = Flask(__name__)
-
-CORS(app, supports_credentials=False)
-scheduler = BackgroundScheduler()
-
-
-def Convert(tup, di):
-    di = dict(tup)
-    return di
+bcrypt = Bcrypt(app)
+app.config["SQLALCHEMY_DATABASE_URI"] = 'sqlite:///ubase.db'
+app.config['SECRET_KEY'] = 'dzipopetagata'
+db = SQLAlchemy()
 
 
-salted = bcrypt.gensalt()
+class User(db.Model, UserMixin):
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(50), nullable=False)
+    surname = db.Column(db.String(50), nullable=False)
+    email = db.Column(db.String(50), nullable=False, unique=True)
+    code = db.Column(db.String(50), nullable=False)
+    auth = db.Column(db.String(2), nullable=False)
+
+
+db.init_app(app)
+with app.app_context():
+    db.create_all()
+
 
 conn = connect('datacollection/symbolb.db')
 cursor = conn.cursor()
@@ -33,15 +42,20 @@ symbols = [symbols[0] for symbols in cursor.fetchall()]
 cursor.execute("SELECT sym FROM tickbase;")
 tickers = [tickers[0] for tickers in cursor.fetchall()]
 
+schedule.every(2).hours.do(retrieveNews)
 
-def gather():
-    print("Gathering news...")
-    print("Finished!")
+
+@app.route('/update', methods=['POST', 'GET'])
+def update():
+    print(schedule.get_jobs())
+    schedule.run_pending()
+    response = jsonify("updated")
+    response.status_code = 200
+    return response
 
 
 @app.route("/news", methods=['POST', 'GET'])
 def news():
-    schedule.run_pending()
     connection = connect('datacollection/newslist.db')
     curs = connection.cursor()
 
@@ -62,10 +76,11 @@ def news_search(keyword):
     connection = connect('datacollection/newslist.db')
     curs = connection.cursor()
 
-    res = curs.execute("SELECT title, link FROM newstable WHERE title LIKE '%" + keyword + "%'")
+    # change link to title
+    curs.execute("SELECT time, title, link, category, img, text FROM newstable WHERE link LIKE '%" + keyword + "%'")
     res = curs.fetchall()
 
-    df = pd.DataFrame(res, columns=["title", "link"])
+    df = pd.DataFrame(res, columns=["time", "title", "link", "category", "img", "text"])
     jsonce = df.to_json(orient="records")
     jsonce = jsonce.replace(r'\\', "")
     resp = jsonify(jsonce)
@@ -95,8 +110,8 @@ def sendts(symbol, ts):
     connection.row_factory = sqlite3.Row
     curs = connection.cursor()
 
-    current_GMT = time.gmtime()
-    minusdate = calendar.timegm(current_GMT)
+    current_gmt = time.gmtime()
+    minusdate = calendar.timegm(current_gmt)
 
     if ts == "w":
         minusdate -= 8 * 86400
@@ -117,91 +132,29 @@ def sendts(symbol, ts):
     return resp
 
 
-@app.route("/sign_up", methods=['POST', 'GET'])
-def signup():
-    # print(data)
-    ub_conn = connect("userbase.db")
-    ub_curs = ub_conn.cursor()
-
-    rstring = "good"
-    rstatus = 200
+@app.route("/subscribe", methods=['POST', 'GET'])
+def register():
     data = request.get_json()
-    print(data)
-
-    user = data['user']
+    name = data['name']
+    surname = data['surname']
     email = data['email']
-    password = data['password']
 
-    ub_curs.execute("SELECT * FROM users WHERE username = '" + user + "'")
-
-    users_list = ub_curs.fetchall()
-    if len(users_list) > 0:
-        rstring = "username taken"
-        rstatus = 409
-
-    ub_curs.execute("SELECT * FROM users WHERE email = '" + email + "'")
-    email_list = ub_curs.fetchall()
-    if len(email_list) > 0:
-        rstring = "email taken"
-        rstatus = 410
-
-    if rstatus == 200:
-        userid = uuid.uuid4()
-        pw = bcrypt.hashpw(password.encode('utf-8'), salted)
-        sql = "INSERT INTO users (id, username, email, password) VALUES (?, ?, ?, ?)"
-        val = (str(userid), str(user), str(email), str(pw))
-        ub_curs.execute(sql, val)
-        ub_conn.commit()
-        response = jsonify({"user": user, "email": email, "password": password})
-        response.status_code = 200
-        response.headers.add('Content-Type', 'application/json')
-    else:
-        response = jsonify(rstring)
-        response.status_code = rstatus
-
-    ub_conn.close()
-    return response
-
-
-@app.route("/login", methods=['POST', 'GET'])
-def login():
-    ub_conn = connect("userbase.db")
-    ub_curs = ub_conn.cursor()
-
-    rstring = "good"
-    rstatus = 200
-    data = request.get_json()
     print(data)
 
-    user = data['user']
-    password = data['password']
+    existing_email = User.query.filter_by(email=email).first()
+    if existing_email:
+        rus = jsonify("Email taken")
+        rus.status_code = 410
+        return rus
 
-    ub_curs.execute("SELECT * FROM users WHERE username = '" + user + "'")
+    new_code = random.randint(100000, 999999)
 
-    users_list = ub_curs.fetchall()
-    if len(users_list) == 0:
-        rstring = "user doesn't exist"
-        rstatus = 409
+    new_user = User(name=name, surname=surname, email=email, code=str(new_code), auth=str(0))
+    db.session.add(new_user)
+    db.session.commit()
 
-    print(users_list)
-
-    if rstatus == 200:
-        if bcrypt.checkpw(users_list[0][3].encode('utf-8'), bcrypt.hashpw(password.encode('utf-8'), salted)):
-            response = jsonify({"user": user, "password": password})
-            response.status_code = 200
-            response.headers.add('Content-Type', 'application/json')
-        else:
-            rstatus = 410
-            rstring = "wrong password"
-            ub_conn.close()
-            response = jsonify(rstring)
-            response.status_code = rstatus
-            return response
-    else:
-        response = jsonify(rstring)
-        response.status_code = rstatus
-
-    ub_conn.close()
+    response = jsonify({"email": email, "code": new_code})
+    response.status_code = 200
     return response
 
 
@@ -226,9 +179,26 @@ def symbols():
     return response
 
 
+@app.route("/code/<email>", methods=['POST', 'GET'])
+def code(email):
+    data = request.get_json()
+    coded = data['code']
+
+    user = User.query.filter_by(email=email).first()
+    if coded == user.code:
+        user.auth = 1
+    else:
+        response = jsonify("wrong code")
+        response.status_code = 403
+        return response
+
+    response = jsonify("all good")
+    response.status_code = 200
+    return response
+
+
 if __name__ == '__main__':
     app.run()
-    gather()
     with app.test_request_context():
         for sym in symbols:
             url_sym = url_for('send', symbol=sym)

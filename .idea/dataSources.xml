@@ -37,20 +37,8 @@
         </library>
       </libraries>
     </data-source>
-    <data-source source="LOCAL" name="newslist [2]" uuid="44f97bc0-8a01-4b3a-8860-e43d84735605">
-      <driver-ref>sqlite.xerial</driver-ref>
-      <synchronize>true</synchronize>
-      <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
-      <jdbc-url>jdbc:sqlite:C:\Users\baze\PycharmProjects\finance_trackerMK\backend\datacollection\newslist.db</jdbc-url>
-      <working-dir>$ProjectFileDir$</working-dir>
-      <libraries>
-        <library>
-          <url>file://$APPLICATION_CONFIG_DIR$/jdbc-drivers/Xerial SQLiteJDBC/3.40.1/org/xerial/sqlite-jdbc/3.40.1.0/sqlite-jdbc-3.40.1.0.jar</url>
-        </library>
-      </libraries>
-    </data-source>
     <data-source source="LOCAL" name="symbolsprices [2]" uuid="aeec24a7-3dab-4170-b6a4-acb44d038dd1">
-      <driver-ref>sqlite.xerial</driver-ref>
+      <driver-ref>93c1b01f-ac31-47f9-b4f3-1ae4492ec267</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
       <jdbc-url>jdbc:sqlite:C:\Users\baze\PycharmProjects\finance_trackerMK\backend\datacollection\symbolsprices.db</jdbc-url>
@@ -65,7 +53,7 @@
       </libraries>
     </data-source>
     <data-source source="LOCAL" name="userbase [4]" uuid="3f40d2a7-fa9a-489a-984e-22761a3e50f6">
-      <driver-ref>sqlite.xerial</driver-ref>
+      <driver-ref>93c1b01f-ac31-47f9-b4f3-1ae4492ec267</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
       <jdbc-url>jdbc:sqlite:C:\Users\baze\PycharmProjects\finance_trackerMK\backend\userbase.db</jdbc-url>
@@ -79,11 +67,11 @@
         </library>
       </libraries>
     </data-source>
-    <data-source source="LOCAL" name="newslist [3]" uuid="d521b7bd-109a-495c-97f2-7214d8868a2d">
-      <driver-ref>sqlite.xerial</driver-ref>
+    <data-source source="LOCAL" name="symbolb [2]" uuid="cd55ddd5-702c-4cf4-85d7-80b42e9f2370">
+      <driver-ref>93c1b01f-ac31-47f9-b4f3-1ae4492ec267</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
-      <jdbc-url>jdbc:sqlite:C:\Users\baze\PycharmProjects\finance_trackerMK\backend\newslist.db</jdbc-url>
+      <jdbc-url>jdbc:sqlite:C:\Users\baze\PycharmProjects\finance_trackerMK\backend\datacollection\symbolb.db</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
       <libraries>
         <library>
@@ -94,16 +82,25 @@
         </library>
       </libraries>
     </data-source>
-    <data-source source="LOCAL" name="symbolb [2]" uuid="cd55ddd5-702c-4cf4-85d7-80b42e9f2370">
+    <data-source source="LOCAL" name="userbase" uuid="ad5a7ddc-f49a-4e70-888e-e7d866917e85">
       <driver-ref>sqlite.xerial</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
-      <jdbc-url>jdbc:sqlite:C:\Users\baze\PycharmProjects\finance_trackerMK\backend\datacollection\symbolb.db</jdbc-url>
+      <jdbc-url>jdbc:sqlite:C:\Users\blagoj\PycharmProjects\Git\finance_trackerMK\backend\userbase.db</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
       <libraries>
         <library>
-          <url>file://$APPLICATION_CONFIG_DIR$/jdbc-drivers/Xerial SQLiteJDBC/3.43.0/sqlite-jdbc-3.43.0.0.jar</url>
+          <url>file://$APPLICATION_CONFIG_DIR$/jdbc-drivers/Xerial SQLiteJDBC/3.40.1/org/xerial/sqlite-jdbc/3.40.1.0/sqlite-jdbc-3.40.1.0.jar</url>
         </library>
+      </libraries>
+    </data-source>
+    <data-source source="LOCAL" name="ubase" uuid="352464b2-3f5f-45e6-ab0c-009d84174108">
+      <driver-ref>sqlite.xerial</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
+      <jdbc-url>jdbc:sqlite:C:\Users\blagoj\PycharmProjects\Git\finance_trackerMK\backend\instance\ubase.db</jdbc-url>
+      <working-dir>$ProjectFileDir$</working-dir>
+      <libraries>
         <library>
           <url>file://$APPLICATION_CONFIG_DIR$/jdbc-drivers/Xerial SQLiteJDBC/3.40.1/org/xerial/sqlite-jdbc/3.40.1.0/sqlite-jdbc-3.40.1.0.jar</url>
         </library>
